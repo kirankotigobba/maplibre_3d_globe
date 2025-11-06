@@ -42,44 +42,93 @@ const baseStyles = {
     }
   },
 
-  stamenToner: {
-    label: "🖤 Stamen Toner",
-    style: {
-      version: 8,
-      sources: {
-        stamenToner: {
-          type: 'raster',
-          tiles: [
-            'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png'
-          ],
-          tileSize: 256,
-          attribution:
-            '© <a href="https://stamen.com/">Stamen Design</a> © <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }
-      },
-      layers: [{ id: 'stamen-toner-layer', type: 'raster', source: 'stamenToner' }]
-    }
-  },
+  // stamenToner: {
+  //   label: "🖤 Stamen Toner",
+  //   style: {
+  //     version: 8,
+  //     sources: {
+  //       stamenToner: {
+  //         type: 'raster',
+  //         tiles: [
+  //           'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png'
+  //         ],
+  //         tileSize: 256,
+  //         attribution:
+  //           '© <a href="https://stamen.com/">Stamen Design</a> © <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  //       }
+  //     },
+  //     layers: [{ id: 'stamen-toner-layer', type: 'raster', source: 'stamenToner' }]
+  //   }
+  // },
 
-  stamenTerrain: {
-    label: "⛰️ Stamen Terrain",
+  // stamenTerrain: {
+  //   label: "⛰️ Stamen Terrain",
+  //   style: {
+  //     version: 8,
+  //     sources: {
+  //       stamenTerrain: {
+  //         type: 'raster',
+  //         tiles: [
+  //           'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png'
+  //         ],
+  //         tileSize: 256,
+  //         attribution:
+  //           '© <a href="https://stamen.com/">Stamen Design</a> © <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  //       }
+  //     },
+  //     layers: [{ id: 'stamen-terrain-layer', type: 'raster', source: 'stamenTerrain' }]
+  //   }
+  // },
+    darkMatterNoLabels: {
+    label: "🌑 Dark Matter (No Labels)",
     style: {
       version: 8,
       sources: {
-        stamenTerrain: {
+        darkMatterTiles: {
           type: 'raster',
           tiles: [
-            'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}.png'
+            'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
+            'https://b.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
+            'https://c.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
+            'https://d.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png'
           ],
           tileSize: 256,
           attribution:
-            '© <a href="https://stamen.com/">Stamen Design</a> © <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+            '© <a href="https://carto.com/">CARTO</a>'
         }
       },
-      layers: [{ id: 'stamen-terrain-layer', type: 'raster', source: 'stamenTerrain' }]
+      layers: [
+        { id: 'dark-matter-nolabels-layer', type: 'raster', source: 'darkMatterTiles' }
+      ]
     }
   }
+,
+  // watercolor: {
+  //   label: "🎨 Stamen Watercolor",
+  //   style: {
+  //     version: 8,
+  //     sources: {
+  //       watercolorTiles: {
+  //         type: 'raster',
+  //         tiles: [
+  //           'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=YOUR_KEY'
+  //         ],
+  //         tileSize: 256,
+  //         attribution:
+  //           '© <a href="https://stamen.com/">Stamen Design</a> ' +
+  //           '© <a href="https://stadiamaps.com/">Stadia Maps</a> ' +
+  //           '© <a href="https://openmaptiles.org/">OpenMapTiles</a> ' +
+  //           '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  //       }
+  //     },
+  //     layers: [
+  //       { id: 'watercolor-layer', type: 'raster', source: 'watercolorTiles' }
+  //     ]
+  //   }
+  // }
 };
+
 
 // Initialize map with OSM
 const map = new maplibregl.Map({
