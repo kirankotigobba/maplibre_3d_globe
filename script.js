@@ -4,13 +4,36 @@ const map = new maplibregl.Map({
   style: baseStyles.datavizDark.style, // ✅ Default basemap
   center: [77.5946, 12.9716],
   zoom: 2,
-  projection: 'globe'
+  projection: 'globe',
+  transparent: true
 });
+
+// --- 2. GET BACKGROUND ELEMENT ---
+const bgContainer = document.getElementById('background-container');
+const baseZoom = map.getZoom(); // Get the initial zoom level (e.g., 2)
+
+// --- 3. THE SYNC FUNCTION ---
+// This function will run on load and every time the map zooms
+function updateBackgroundScale() {
+    const zoom = map.getZoom();
+    
+    // Calculate scale factor. 
+    // map.getZoom() is logarithmic. 
+    // Math.pow(2, ...) is the correct way to convert it to a linear scale.
+    const scale = Math.pow(2, zoom - baseZoom); 
+    
+    // Apply the scale to our background container
+    bgContainer.style.transform = `scale(${scale})`;
+}
+
 
 // Atmosphere
 map.on('style.load', () => {
   map.setProjection({ type: 'globe' });
+  updateBackgroundScale();
 });
+
+map.on('zoom', updateBackgroundScale);
 
 // Controls
 map.addControl(new maplibregl.NavigationControl(), 'top-right');
@@ -41,6 +64,7 @@ Object.keys(baseStyles).forEach(key => {
     map.setStyle(baseStyles[key].style);
     map.once('style.load', () => {
       map.setProjection({ type: 'globe' });
+      updateBackgroundScale(); // ✅ Also set scale on basemap change
       map.jumpTo({ center, zoom });
     });
     menu.style.display = 'none';

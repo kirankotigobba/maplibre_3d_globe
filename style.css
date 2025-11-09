@@ -5,14 +5,54 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background-color: #000;
+  background-image: 
+      url('./stardust.png'); /* 1. The stars */
+      /* 2. The glow (REMOVED) */
+    
+  /* Make the glow cover the whole screen, centered */
+  background-position: center center;
+  background-size: auto; /* 'auto' for stars */
+  background-repeat: repeat;
+  
+  /* Stops the page from scrolling */
+  overflow: hidden;
 }
+#background-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; /* Behind the map */
+    
+    /* This tells the browser to scale from the center */
+    transform-origin: center center;
+}
+
+
+#glow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(
+        circle at center,
+        rgba(230, 245, 255, 0.4) 20%, 
+        rgba(230, 245, 255, 0.1) 30%, 
+        transparent 35%
+    );
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+    /* Make the glow a bit bigger than the screen */
+    background-size: 150% 150%; 
+}
+
 
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 100%;height: 100%;
+  z-index: 1; /* On top of the background */
 }
 
 /* 🔧 Basemap switcher container */
