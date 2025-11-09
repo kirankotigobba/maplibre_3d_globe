@@ -23,7 +23,7 @@ function updateBackgroundScale() {
     const scale = Math.pow(2, zoom - baseZoom); 
     
     // Apply the scale to our background container
-    bgContainer.style.transform = `scale(${scale})`;
+    bgContainer.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
 
