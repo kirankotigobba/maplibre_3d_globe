@@ -1,7 +1,7 @@
 // Initialize map
 const map = new maplibregl.Map({
   container: 'map',
-  style: baseStyles.osm.style,
+  style: baseStyles.datavizDark.style, // ✅ Default basemap
   center: [77.5946, 12.9716],
   zoom: 2,
   projection: 'globe'

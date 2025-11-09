@@ -1,5 +1,37 @@
 // basemaps.js
+
+const MAPTILER_KEY = "2933bidRb4ILJ73B9Ebz";
+
 const baseStyles = {
+
+
+  datavizDark: {
+    label: "🖤 Dataviz Dark (Custom)",
+    style: `https://api.maptiler.com/maps/019a67df-cf98-7415-b721-99bcbb07c783/style.json?key=${MAPTILER_KEY}`
+  },
+
+  maptilerStreets: {
+    label: "🗺️ MapTiler Streets",
+    style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER_KEY}`,
+  },
+//   maptilerOutdoor: {
+//     label: "🏞️ MapTiler Outdoor",
+//     style: `https://api.maptiler.com/maps/outdoor-v2/style.json?key=${MAPTILER_KEY}`,
+//   },
+  maptilerSatellite: {
+    label: "🛰️ MapTiler Satellite Hybrid",
+    style: `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`,
+  },
+  maplibreWorld: {
+    label: "🌐 MapLibre World",
+    style: "https://demotiles.maplibre.org/style.json",
+  },   
+
+  maplibreWorld: {
+    label: "🌐 MapLibre World",
+    style: "https://demotiles.maplibre.org/style.json",
+  },
+
   osm: {
     label: "🌍 OpenStreetMap",
     style: {
@@ -65,5 +97,6 @@ const baseStyles = {
         { id: 'dark-matter-nolabels-layer', type: 'raster', source: 'darkMatterTiles' }
       ]
     }
-  }
+  },
+
 };
