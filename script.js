@@ -10,12 +10,6 @@ const map = new maplibregl.Map({
 // Atmosphere
 map.on('style.load', () => {
   map.setProjection({ type: 'globe' });
-  map.setFog({
-    color: 'rgba(186, 210, 235, 0.5)',
-    'high-color': 'rgba(36, 92, 223, 0.4)',
-    'space-color': 'rgb(11, 11, 25)',
-    'horizon-blend': 0.02
-  });
 });
 
 // Controls
@@ -48,12 +42,6 @@ Object.keys(baseStyles).forEach(key => {
     map.once('style.load', () => {
       map.setProjection({ type: 'globe' });
       map.jumpTo({ center, zoom });
-      map.setFog({
-        color: 'rgba(186, 210, 235, 0.5)',
-        'high-color': 'rgba(36, 92, 223, 0.4)',
-        'space-color': 'rgb(11, 11, 25)',
-        'horizon-blend': 0.02
-      });
     });
     menu.style.display = 'none';
   });
