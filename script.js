@@ -67,7 +67,6 @@ Object.keys(baseStyles).forEach(key => {
       updateBackgroundScale(); // ✅ Also set scale on basemap change
       map.jumpTo({ center, zoom });
     });
-    menu.style.display = 'none';
   });
 
   menu.appendChild(btn);
@@ -77,10 +76,4 @@ switcher.appendChild(iconBtn);
 switcher.appendChild(menu);
 document.body.appendChild(switcher);
 
-iconBtn.addEventListener('click', () => {
-  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-});
 
-document.addEventListener('click', e => {
-  if (!switcher.contains(e.target)) menu.style.display = 'none';
-});

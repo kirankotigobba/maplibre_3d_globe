@@ -27,10 +27,6 @@ const baseStyles = {
     style: "https://demotiles.maplibre.org/style.json",
   },   
 
-  maplibreWorld: {
-    label: "🌐 MapLibre World",
-    style: "https://demotiles.maplibre.org/style.json",
-  },
 
   osm: {
     label: "🌍 OpenStreetMap",
